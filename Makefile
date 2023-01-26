@@ -62,3 +62,6 @@ redis:
 	docker run --name redis -p 6379:6379 -d redis:7-alpine
 
 .PHONY: network postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 db_docs db_schema sqlc test server mock proto evans redis
+
+test_express:
+	go test -timeout 30s github.com/libterty/g-micro/db/sqlc --run ${c}
